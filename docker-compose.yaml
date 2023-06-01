@@ -21,8 +21,8 @@ services:
     ports:
       - "5001:5001"
     volumes:
-      - ./application/indexes:/app/indexes
-      - ./application/inputs:/app/inputs
+      - /home/khiemfle/workspace/mfa/DocsGPT/indexes:/app/indexes
+      - /home/khiemfle/workspace/mfa/DocsGPT/inputs:/app/inputs
       - ./application/vectors:/app/vectors
     depends_on:
         - redis

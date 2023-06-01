@@ -166,6 +166,12 @@ def api_answer():
             docsearch = FAISS.load_local(vectorstore, HuggingFaceInstructEmbeddings())
         elif settings.EMBEDDINGS_NAME == "cohere_medium":
             docsearch = FAISS.load_local(vectorstore, CohereEmbeddings(cohere_api_key=embeddings_key))
+        
+        import sys
+        print("khiemfle", file=sys.stderr) 
+        print(docsearch, file=sys.stderr)
+        docs = docsearch.similarity_search(question)
+        print(docs[0], file=sys.stderr)
 
         # create a prompt template
         q_prompt = PromptTemplate(input_variables=["context", "question"], template=template_quest,
