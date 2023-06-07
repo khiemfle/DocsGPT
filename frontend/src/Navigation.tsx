@@ -160,7 +160,7 @@ export default function Navigation({
                     }}
                     className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
                   >
-                    <p className="ml-5 flex-1 whitespace-nowrap py-3">
+                    <p className="ml-5 flex-1 whitespace py-3">
                       {doc.name} {doc.version}
                     </p>
                     {doc.location === 'local' ? (
