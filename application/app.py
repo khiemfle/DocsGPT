@@ -351,11 +351,6 @@ def combined_json():
             "location": "local"
         })
 
-    data_remote = requests.get("https://d3dg1063dc54p9.cloudfront.net/combined.json").json()
-    for index in data_remote:
-        index['location'] = "remote"
-        data.append(index)
-
     return jsonify(data)
 
 
