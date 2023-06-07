@@ -119,6 +119,11 @@ export default function Navigation({
             />
           </button>
         </div>
+        <img
+          className="mt-2 h-9 w-9 hover:cursor-pointer"
+          src={UploadIcon}
+          onClick={() => setUploadModalState('ACTIVE')}
+        ></img>
         <div className="flex flex-col-reverse border-b-2">
           <div className="relative my-4 flex gap-2 px-2">
             <div
@@ -138,11 +143,6 @@ export default function Navigation({
                 } mr-3 w-3 transition-all`}
               />
             </div>
-            <img
-              className="mt-2 h-9 w-9 hover:cursor-pointer"
-              src={UploadIcon}
-              onClick={() => setUploadModalState('ACTIVE')}
-            ></img>
           </div>
           <p className="ml-6 mt-3 font-bold text-jet">Source Docs</p>
         </div>
@@ -157,6 +157,7 @@ export default function Navigation({
                       dispatch(setSelectedDocs(doc));
                       setIsDocsListOpen(false);
                     }}
+                    style={{ backgroundColor: `${(selectedDocs != null && selectedDocs.name == doc.name) ? '#49ff0059' : '#F5F5F5'}` }}
                     className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
                     title={`${doc.name} ${doc.version}`}
                   >
