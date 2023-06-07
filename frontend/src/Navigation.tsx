@@ -131,7 +131,7 @@ export default function Navigation({
               onClick={() => setIsDocsListOpen(!isDocsListOpen)}
             >
               {selectedDocs && (
-                <input className="my-3 mx-4 overflow-hidden overflow-ellipsis whitespace-nowrap"
+                <input className="my-1 mx-1 w-full overflow-hidden overflow-ellipsis whitespace-nowrap"
                   title={`${selectedDocs.name} ${selectedDocs.version}`} 
                   value={`${selectedDocs.name} ${selectedDocs.version}`}>
                 </input>
