@@ -119,18 +119,6 @@ export default function Navigation({
             />
           </button>
         </div>
-        <NavLink
-          to={'/'}
-          className={({ isActive }) =>
-            `${
-              isActive ? 'bg-gray-3000' : ''
-            } my-auto mx-4 mt-4 flex h-12 cursor-pointer gap-4 rounded-md hover:bg-gray-100`
-          }
-        >
-          <img src={Message} className="ml-2 w-5"></img>
-          <p className="my-auto text-eerie-black">Chat</p>
-        </NavLink>
-
         <div className="flex-grow border-b-2 border-gray-100"></div>
         <div className="flex flex-col-reverse border-b-2">
           <div className="relative my-4 flex gap-2 px-2">
