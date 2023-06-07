@@ -98,10 +98,11 @@ export default function Navigation({
   return (
     <>
       <div
+        style={{ width: '32rem' }}
         ref={navRef}
         className={`${
           navState === 'INACTIVE' && '-ml-96 md:-ml-[14rem]'
-        } duration-20 fixed z-20 flex h-full w-96 flex-col border-r-2 bg-gray-50 transition-all`}
+        } duration-20 fixed z-20 flex h-full flex-col border-r-2 bg-gray-50 transition-all`}
       >
         <div className={'visible h-16 w-full border-b-2 md:hidden'}>
           <button
@@ -159,7 +160,7 @@ export default function Navigation({
                     }}
                     className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
                   >
-                    <p className="ml-5 flex-1 overflow-hidden overflow-ellipsis whitespace-nowrap py-3">
+                    <p className="ml-5 flex-1 whitespace-nowrap py-3">
                       {doc.name} {doc.version}
                     </p>
                     {doc.location === 'local' ? (
