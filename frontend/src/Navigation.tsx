@@ -131,17 +131,11 @@ export default function Navigation({
               onClick={() => setIsDocsListOpen(!isDocsListOpen)}
             >
               {selectedDocs && (
-                <p className="my-3 mx-4">
-                  {selectedDocs.name} {selectedDocs.version}
-                </p>
+                <input className="my-3 mx-4 overflow-hidden overflow-ellipsis whitespace-nowrap"
+                  title={`${selectedDocs.name} ${selectedDocs.version}`} 
+                  value={`${selectedDocs.name} ${selectedDocs.version}`}>
+                </input>
               )}
-              <img
-                src={Arrow2}
-                alt="arrow"
-                className={`${
-                  isDocsListOpen ? 'rotate-0' : 'rotate-180'
-                } mr-3 w-3 transition-all`}
-              />
             </div>
           </div>
           <p className="ml-6 mt-3 font-bold text-jet">Source Docs</p>
@@ -199,18 +193,6 @@ export default function Navigation({
         </div>
 
         <div className="flex flex-col gap-2 border-b-2 py-2">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `my-auto mx-4 flex h-12 cursor-pointer gap-4 rounded-md hover:bg-gray-100 ${
-                isActive ? 'bg-gray-3000' : ''
-              }`
-            }
-          >
-            <img src={Info} alt="info" className="ml-2 w-5" />
-            <p className="my-auto text-eerie-black">About</p>
-          </NavLink>
-
           <a
             href="https://discord.gg/WHJdfbQDR4"
             target="_blank"
