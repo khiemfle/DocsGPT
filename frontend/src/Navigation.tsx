@@ -119,7 +119,6 @@ export default function Navigation({
             />
           </button>
         </div>
-        <div className="flex-grow border-b-2 border-gray-100"></div>
         <div className="flex flex-col-reverse border-b-2">
           <div className="relative my-4 flex gap-2 px-2">
             <div
@@ -144,44 +143,46 @@ export default function Navigation({
               src={UploadIcon}
               onClick={() => setUploadModalState('ACTIVE')}
             ></img>
-            {docs ? (
-              docs.map((doc, index) => {
-                if (doc.model === 'openai_text-embedding-ada-002') {
-                  return (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        dispatch(setSelectedDocs(doc));
-                        setIsDocsListOpen(false);
-                      }}
-                      className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
-                    >
-                      <p className="ml-5 flex-1 overflow-hidden overflow-ellipsis whitespace-nowrap py-3">
-                        {doc.name} {doc.version}
-                      </p>
-                      {doc.location === 'local' ? (
-                        <img
-                          src={Exit}
-                          alt="Exit"
-                          className="mr-4 h-3 w-3 cursor-pointer hover:opacity-50"
-                          id={`img-${index}`}
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            handleDeleteClick(index, doc);
-                          }}
-                        />
-                      ) : null}
-                    </div>
-                  );
-                }
-              })
-            ) : (
-              <div className="h-10 w-full cursor-pointer border-x-2 border-b-2 hover:bg-gray-100">
-                <p className="ml-5 py-3">No default documentation.</p>
-              </div>
-            )}
           </div>
           <p className="ml-6 mt-3 font-bold text-jet">Source Docs</p>
+        </div>
+        <div className="flex flex-col gap-2 border-b-2 py-2 overflow-y-scroll">
+          {docs ? (
+            docs.map((doc, index) => {
+              if (doc.model === 'openai_text-embedding-ada-002') {
+                return (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      dispatch(setSelectedDocs(doc));
+                      setIsDocsListOpen(false);
+                    }}
+                    className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
+                  >
+                    <p className="ml-5 flex-1 overflow-hidden overflow-ellipsis whitespace-nowrap py-3">
+                      {doc.name} {doc.version}
+                    </p>
+                    {doc.location === 'local' ? (
+                      <img
+                        src={Exit}
+                        alt="Exit"
+                        className="mr-4 h-3 w-3 cursor-pointer hover:opacity-50"
+                        id={`img-${index}`}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          handleDeleteClick(index, doc);
+                        }}
+                      />
+                    ) : null}
+                  </div>
+                );
+              }
+            })
+          ) : (
+            <div className="h-10 w-full cursor-pointer border-x-2 border-b-2 hover:bg-gray-100">
+              <p className="ml-5 py-3">No default documentation.</p>
+            </div>
+          )}
         </div>
         <div className="flex flex-col gap-2 border-b-2 py-2">
           <div
