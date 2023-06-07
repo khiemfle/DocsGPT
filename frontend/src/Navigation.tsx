@@ -144,7 +144,7 @@ export default function Navigation({
               src={UploadIcon}
               onClick={() => setUploadModalState('ACTIVE')}
             ></img>
-            {isDocsListOpen && (
+            {true && (
               <div className="absolute top-12 left-0 right-6 ml-2 mr-4 max-h-52 overflow-y-scroll bg-white shadow-lg">
                 {docs ? (
                   docs.map((doc, index) => {
