@@ -159,8 +159,9 @@ export default function Navigation({
                       setIsDocsListOpen(false);
                     }}
                     className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
+                    title={`${doc.name} ${doc.version}`}
                   >
-                    <p className="ml-5 flex-1 whitespace py-3">
+                    <p className="ml-5 flex-1 overflow-hidden overflow-ellipsis whitespace-nowrap py-3">
                       {doc.name} {doc.version}
                     </p>
                     {doc.location === 'local' ? (
