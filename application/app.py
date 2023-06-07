@@ -170,8 +170,8 @@ def api_answer():
         import sys
         print("khiemfle", file=sys.stderr) 
         print(docsearch, file=sys.stderr)
-        docs = docsearch.as_retriever(k=2)
-        print(docs.get_relevant_documents(question), file=sys.stderr)
+        docs = docsearch.similarity_search_with_score(question)
+        print(docs, file=sys.stderr)
 
         # create a prompt template
         q_prompt = PromptTemplate(input_variables=["context", "question"], template=template_quest,
