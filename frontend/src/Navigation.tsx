@@ -144,46 +144,44 @@ export default function Navigation({
               src={UploadIcon}
               onClick={() => setUploadModalState('ACTIVE')}
             ></img>
-            {true && (
-              <div className="absolute top-12 left-0 right-6 ml-2 mr-4 max-h-52 overflow-y-scroll bg-white shadow-lg">
-                {docs ? (
-                  docs.map((doc, index) => {
-                    if (doc.model === 'openai_text-embedding-ada-002') {
-                      return (
-                        <div
-                          key={index}
-                          onClick={() => {
-                            dispatch(setSelectedDocs(doc));
-                            setIsDocsListOpen(false);
-                          }}
-                          className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
-                        >
-                          <p className="ml-5 flex-1 overflow-hidden overflow-ellipsis whitespace-nowrap py-3">
-                            {doc.name} {doc.version}
-                          </p>
-                          {doc.location === 'local' ? (
-                            <img
-                              src={Exit}
-                              alt="Exit"
-                              className="mr-4 h-3 w-3 cursor-pointer hover:opacity-50"
-                              id={`img-${index}`}
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                handleDeleteClick(index, doc);
-                              }}
-                            />
-                          ) : null}
-                        </div>
-                      );
-                    }
-                  })
-                ) : (
-                  <div className="h-10 w-full cursor-pointer border-x-2 border-b-2 hover:bg-gray-100">
-                    <p className="ml-5 py-3">No default documentation.</p>
-                  </div>
-                )}
-              </div>
-            )}
+            <div className="absolute top-12 left-0 right-6 ml-2 mr-4 max-h-52 overflow-y-scroll bg-white shadow-lg">
+              {docs ? (
+                docs.map((doc, index) => {
+                  if (doc.model === 'openai_text-embedding-ada-002') {
+                    return (
+                      <div
+                        key={index}
+                        onClick={() => {
+                          dispatch(setSelectedDocs(doc));
+                          setIsDocsListOpen(false);
+                        }}
+                        className="flex h-10 w-full cursor-pointer items-center justify-between border-x-2 border-b-2 hover:bg-gray-100"
+                      >
+                        <p className="ml-5 flex-1 overflow-hidden overflow-ellipsis whitespace-nowrap py-3">
+                          {doc.name} {doc.version}
+                        </p>
+                        {doc.location === 'local' ? (
+                          <img
+                            src={Exit}
+                            alt="Exit"
+                            className="mr-4 h-3 w-3 cursor-pointer hover:opacity-50"
+                            id={`img-${index}`}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              handleDeleteClick(index, doc);
+                            }}
+                          />
+                        ) : null}
+                      </div>
+                    );
+                  }
+                })
+              ) : (
+                <div className="h-10 w-full cursor-pointer border-x-2 border-b-2 hover:bg-gray-100">
+                  <p className="ml-5 py-3">No default documentation.</p>
+                </div>
+              )}
+            </div>
           </div>
           <p className="ml-6 mt-3 font-bold text-jet">Source Docs</p>
         </div>
